@@ -1,37 +1,49 @@
 class PostsController < ApplicationController
+  before_action :current_user, only: [:create]
+
   def index
-    user_id = params[:user_id]
-    @user = User.includes(:posts).find(user_id)
+    @user = User.find(params[:user_id])
+    @posts_list = @user.posts.includes(:comments)
   end
 
   def show
-    user_id = params[:user_id]
-    post_id = params[:id]
-    @user = User.find(user_id)
-    @post = @user.posts.includes(:comments, :likes).find(post_id)
+    @user = User.find(params[:user_id])
+    @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
-    @current = current_user
+    @post = Post.new
   end
 
   def create
-    new_post = current_user.posts.build(post_params)
-
+    new_p = current_user.posts.new(post_params)
+    new_p.likes_counter = 0
+    new_p.comments_counter = 0
     respond_to do |format|
       format.html do
-        if new_post.save
-          redirect_to user_post_path(new_post.author_id, new_post.id), notice: 'Post created successfully'
+        if new_p.save
+          flash[:success] = 'Post created successfully'
+          redirect_to "/users/#{current_user.id}/posts/"
         else
-          render :new, alert: 'An error occured. Please try again!'
+          render :new
+          flash.now[:error] = 'Error: Post could not be saved'
         end
       end
     end
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    current_user.decrement!(:posts_counter)
+    @post.destroy!
+    flash[:success] = 'Post is deleted'
+    redirect_to "/users/#{current_user.id}/posts/"
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:title, :text)
+    params.require(:post).permit(:Title, :Text)
   end
 end
