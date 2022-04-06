@@ -63,3 +63,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Adds advanced authentication capabilities for rails app
 gem 'devise'
+
+# Add authorization capabilites for rails app
+gem 'cancancan'
