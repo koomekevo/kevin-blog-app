@@ -20,13 +20,19 @@ Run `rails s` to run the local version
 
 Check your browser at `http://localhost:3000/`
 
-## Author
+## Authors
 
 👤 **Kevin Koome**
 
 - GitHub: [@koomekevo](https://github.com/koomekevo)
 - Twitter: [@koomekevo](https://twitter.com/koomekevo)
 - LinkedIn: [LinkedIn](https://ke.linkedin.com/in/kevin-koome-aab84186)
+
+👤**Annah Tumworobere**
+
+- [Github](https://github.com/Tumworobere)
+- [Twitter](https://twitter.com/Tannah2090)
+- [LinkedIn](www.linkedin.com/in/annah-tumworobere-)
 
 ## 🤝 Contributing
 
