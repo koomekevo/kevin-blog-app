@@ -78,3 +78,10 @@ input::placeholder,
 textarea::placeholder {
   font-style: italic;
 }
+
+nav {
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 4px 0 !important;
+}

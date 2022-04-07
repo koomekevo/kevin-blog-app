@@ -1,6 +1,9 @@
 <div>
   <nav class="fs-6 p-3 container mt-2 p-2 bio">
   <%= link_to "Home", root_path %>
+  <%= link_to "Add a post", new_user_post_path(@user.id) %>
+  <%= link_to "Back", :back %>
+  <%= link_to "logout", destroy_user_session_path, method: :delete  %>
   </nav>
   <%= render partial: "user_profile", locals: {user: @user} %>
   <div class="border border-1 border-dark container p-2 my-5 bio">

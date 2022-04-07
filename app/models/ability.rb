@@ -37,6 +37,14 @@ class Ability
       can :read, :all
       can :manage, Comment
       can :manage, Post, user_id: user.id
+
+      can :destroy, Post do |post|
+        post.author_id == user.id
+      end
+
+      can :destroy, Comment do |comment|
+        comment.author_id == user.id
+      end
     end
   end
 end

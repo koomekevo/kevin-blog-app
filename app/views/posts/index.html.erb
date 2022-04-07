@@ -3,6 +3,7 @@
     <%= link_to "Add a post", new_user_post_path(@user.id) %>
     <%= link_to "Home", root_path %>
     <%= link_to "Back", :back %>
+    <%= link_to "logout", destroy_user_session_path, method: :delete  %>
   </nav>
   <%= render partial: "users/user_profile", locals: { user: @user } %>
     <ul>
@@ -17,6 +18,9 @@
               <span>Comments: <%= p.comments.size %></span>
               <span>Likes: <%= p.comments.size %></span>
             </div>
+            <% if can? :destroy, p %>
+              <%= button_to "Delete Post", user_post_path(@user.id, p.id), :class => "btn btn-danger", :method => :delete %>
+            <% end %>
           </div>
           <div>
             <ul class="border border-1 border-dark container p-2 mt-1 bio">
