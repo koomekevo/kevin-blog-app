@@ -15,13 +15,13 @@ RSpec.feature 'Logins', type: :feature do
   end
 
   context 'Submit a form' do
-    it 'Submit form without email and password' do
+    it 'should not submit form without email and password' do
       click_button 'Log in'
       expect(page).to have_content 'Invalid Email or password.'
     end
   end
 
-  it 'Submit form with incorrect credentials' do
+  it 'should not submit form with incorrect credentials' do
     within 'form' do
       fill_in 'Email', with: 'koome@gmail.com'
       fill_in 'Password', with: 'kk123454321'

@@ -54,5 +54,23 @@ RSpec.describe 'User #Show', type: :feature do
       visit(user_posts_path(@user_one.id))
       expect(page).to have_content 'userone'
     end
+
+    it 'The posts title is visible' do
+      expect(page).to have_content 'first'
+    end
+
+    it 'The posts text is visible' do
+      expect(page).to have_content 'Hello'
+    end
+
+    it 'The first comments in the post are visible' do
+      expect(page).to have_content 'Never back down'
+    end
+
+    scenario 'When clicking on a post, the page redirects to that post page' do
+      sleep(5)
+      click_link 'first'
+      expect(page.current_path).to eq "/users/#{@user_one.id}/posts/#{@post_one.id}"
+    end
   end
 end

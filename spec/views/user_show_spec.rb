@@ -43,5 +43,9 @@ RSpec.describe 'User #Show', type: :feature do
     it 'shows button to see all posts.' do
       expect(page).to have_link('See all posts')
     end
+
+    it "the user's first 3 posts are available" do
+      expect(page).to have_text('Bonjour')
+    end
   end
 end

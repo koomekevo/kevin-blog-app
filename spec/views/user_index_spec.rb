@@ -67,4 +67,15 @@ describe 'user index page tests', type: :feature do
     click_button 'Log in'
     expect(page).to have_content 'Number of posts: 0'
   end
+
+  it 'When user name link is clicked, user is redirected to that users show page.' do
+    visit root_path
+    within('body') do
+      fill_in 'Email', with: 'userone@gmail.com'
+      fill_in 'Password', with: '1234321'
+    end
+    click_button 'Log in'
+    click_link('userone')
+    expect(page).to have_text('Engineer')
+  end
 end
