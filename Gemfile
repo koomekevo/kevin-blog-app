@@ -66,3 +66,6 @@ gem 'devise'
 
 # Add authorization capabilites for rails app
 gem 'cancancan'
+
+# Add Rswag for managing APIs
+gem 'rswag'
