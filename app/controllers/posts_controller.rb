@@ -2,48 +2,45 @@ class PostsController < ApplicationController
   before_action :current_user, only: [:create]
 
   def index
-    @user = User.find(params[:user_id])
-    @posts_list = @user.posts.includes(:comments)
+    user_id = params[:user_id]
+    @user = User.includes(:posts).find(user_id)
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @post = Post.find(params[:id])
-    @comment = Comment.new
+    user_id = params[:user_id]
+    post_id = params[:id]
+    @user = User.find(user_id)
+    @post = @user.posts.includes(:comments, :likes).find(post_id)
   end
 
   def new
-    @post = Post.new
+    @current = current_user
   end
 
   def create
-    new_p = current_user.posts.new(post_params)
-    new_p.likes_counter = 0
-    new_p.comments_counter = 0
+    new_post = current_user.posts.build(post_params)
+
     respond_to do |format|
       format.html do
-        if new_p.save
-          flash[:success] = 'Post created successfully'
-          redirect_to "/users/#{current_user.id}/posts/"
+        if new_post.save
+          redirect_to user_post_path(new_post.author_id, new_post.id), notice: 'Post created successfully'
         else
-          render :new
-          flash.now[:error] = 'Error: Post could not be saved'
+          render :new, alert: 'An error occured. Please try again!'
         end
       end
     end
   end
 
   def destroy
-    @post = Post.find(params[:id])
-    current_user.decrement!(:posts_counter)
-    @post.destroy!
-    flash[:success] = 'Post is deleted'
-    redirect_to "/users/#{current_user.id}/posts/"
+    post = Post.find(params[:id])
+    authorize! :destroy, post
+    post.destroy
+    redirect_to user_posts_path, notice: 'Post deleted'
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:Title, :Text)
+    params.require(:post).permit(:title, :text)
   end
 end

@@ -8,20 +8,20 @@
 
 # Users
 
-first_user = User.create(name: 'Peter', photo: '', bio: 'Teacher from Thailand.')
-second_user = User.create(name: 'Frank', photo: '', bio: 'Teacher from Mexico.')
-third_user = User.create(name: 'Tim', photo: '', bio: 'Software Engineer and chef.')
+# first_user = User.create(name: 'Peter', photo: '', bio: 'Teacher from Thailand.')
+# second_user = User.create(name: 'Frank', photo: '', bio: 'Teacher from Mexico.')
+# third_user = User.create(name: 'Tim', photo: '', bio: 'Software Engineer and chef.')
 
 # Posts 
 
-first_post = Post.create(author: first_user, title: 'Hello', text: 'This is my first post.')
-second_post = Post.create(author: first_user, title: 'Hello Everyone!', text: 'This is my second post. I plan to write more')
-third_post = Post.create(author: third_user, title: 'Hello Microverse', text: 'This is my first post. Is it good?')
-fourth_post = Post.create(author: second_user, title: 'Howdy!', text: 'I love chess!')
+# first_post = Post.create(author: first_user, title: 'Hello', text: 'This is my first post.')
+# second_post = Post.create(author: first_user, title: 'Hello Everyone!', text: 'This is my second post. I plan to write more')
+# third_post = Post.create(author: third_user, title: 'Hello Microverse', text: 'This is my first post. Is it good?')
+# fourth_post = Post.create(author: second_user, title: 'Howdy!', text: 'I love chess!')
 
 # Comments
 
-Comment.create(post: first_post, author: third_user, text: 'Sure. Great reminder, thanks!')
-Comment.create(post: first_post, author: second_user, text: 'So relevant. Keep it up!')
-Comment.create(post: second_post, author: third_user, text: 'Thank you so much!')
-Comment.create(post: third_post, author: first_user, text: 'So smart...will keep in touch.')
+# Comment.create(post: first_post, author: third_user, text: 'Sure. Great reminder, thanks!')
+# Comment.create(post: first_post, author: second_user, text: 'So relevant. Keep it up!')
+# Comment.create(post: second_post, author: third_user, text: 'Thank you so much!')
+# Comment.create(post: third_post, author: first_user, text: 'So smart...will keep in touch.')
