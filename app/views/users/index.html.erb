@@ -1,0 +1,11 @@
+<div>
+<nav class="fs-6 p-3 container mt-2 p-2 bio">
+<%= link_to "Home", root_path %>
+<%= link_to "logout", destroy_user_session_path, method: :delete  %>
+</nav>
+  <% @users.each do |user| %>
+    <%= link_to user_path(user.id) do %>
+      <%= render partial: "user_profile", locals: {user: user} %>
+    <% end %>
+  <% end %>
+</div>

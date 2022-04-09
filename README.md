@@ -1,24 +1,49 @@
-# README
+# Kevin Blog App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a classic example of a blog website. 
 
-Things you may want to cover:
+## Built With
 
-* Ruby version
+- Ruby
+- Rails
+- PostgreSQL
 
-* System dependencies
+## Getting Started
 
-* Configuration
+To get a local copy up and running follow these simple example steps.
 
-* Database creation
+Clone the repo with `git clone https://github.com/koomekevo/kevin-blog-app.git`
 
-* Database initialization
+Run `bundle install` from the command line
 
-* How to run the test suite
+Run `rails s` to run the local version
 
-* Services (job queues, cache servers, search engines, etc.)
+Check your browser at `http://localhost:3000/`
 
-* Deployment instructions
+## Authors
 
-* ...
+👤 **Kevin Koome**
+
+- GitHub: [@koomekevo](https://github.com/koomekevo)
+- Twitter: [@koomekevo](https://twitter.com/koomekevo)
+- LinkedIn: [LinkedIn](https://ke.linkedin.com/in/kevin-koome-aab84186)
+
+👤**Annah Tumworobere**
+
+- [Github](https://github.com/Tumworobere)
+- [Twitter](https://twitter.com/Tannah2090)
+- [LinkedIn](www.linkedin.com/in/annah-tumworobere-)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
